@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import Logger from './Logger';
 
-function App() {
+const App: React.FC = () => {
+  useEffect(() => {
+    const logger = Logger.getInstance();
+    logger.log("App component has mounted!");
+    logger.error("This is an error log.");
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React with TypeScript and Singleton Pattern</h1>
     </div>
   );
 }
